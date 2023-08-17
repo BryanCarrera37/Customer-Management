@@ -1,0 +1,48 @@
+﻿@model Customer_Management.Web.DTO.Customer.CustomerDTO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(dto => dto.FirstName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(dto => dto.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(dto => dto.LastName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(dto => dto.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(dto => dto.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(dto => dto.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(dto => dto.CreatedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(dto => dto.CreatedAt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(dto => dto.CompanyName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(dto => dto.CompanyName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

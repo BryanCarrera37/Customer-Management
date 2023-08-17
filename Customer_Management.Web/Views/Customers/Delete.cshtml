@@ -1,0 +1,41 @@
+﻿@model Customer_Management.Web.DTO.Customer.CustomerDTO
+
+@{
+    ViewData["Title"] = "Eliminar cliente";
+}
+
+<h1>Confirmación de Eliminación</h1>
+
+<h3>¿Está seguro de querer eliminar este cliente?</h3>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">Nombre</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(dto => dto.FirstName)
+        </dd>
+        <dt class = "col-sm-2">Apellido</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(dto => dto.LastName)
+        </dd>
+        <dt class = "col-sm-2">Correo electrónico</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(dto => dto.Email)
+        </dd>
+        <dt class = "col-sm-2">Fecha de Creación</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(dto => dto.CreatedAt)
+        </dd>
+        <dt class = "col-sm-2">Compañía</dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(dto => dto.CompanyName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <a class="btn btn-info" asp-action="Index">Volver</a> |
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+    </form>
+</div>

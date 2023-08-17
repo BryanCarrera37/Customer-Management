@@ -1,0 +1,48 @@
+﻿@model Customer_Management.Web.DTO.Company.CompanyWithCustomersDTO
+
+@{
+    ViewData["Title"] = $"Clientes de {Model.Name}";
+    int rowNumber = 1;
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+
+<div>
+    <a class="btn btn-info" asp-action="Index">Volver</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Fecha de creación</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Customers)
+        {
+            <tr>
+                <td>
+                    @rowNumber
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+            </tr>
+            rowNumber++;
+        }
+    </tbody>
+</table>

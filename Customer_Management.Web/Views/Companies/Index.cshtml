@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Customer_Management.Web.DTO.Company.AvailableCompanyDTO>
+
+@{
+    ViewData["Title"] = "Compañías";
+    int index = 1;
+}
+
+<h1>Compañías registradas</h1>
+<hr />
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Crear</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Nombre</th>
+            <th>Fecha de creación</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @index
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt, "{0:dd/MM/yy HH:mm:ss}")
+            </td>
+            <td>
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Ver clientes</a> |
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+            </tr>
+
+            index++;
+        }
+    </tbody>
+</table>
